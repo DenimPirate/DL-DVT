@@ -8,6 +8,26 @@ This is currently a companion-app prototype. The helper must be running locally 
 
 Transcription is local and private: audio is sent only to the helper running on your machine, then processed with the bundled whisper.cpp binary and model.
 
+## Easy Install
+
+For early testers using a Vencord source checkout:
+
+```bash
+git clone https://github.com/DenimPirate/DL-DVT.git
+cd DL-DVT
+./install.sh
+npm start
+```
+
+After installation, fully restart Vesktop/Discord and enable `DL-DVT` in Vencord plugins if needed.
+
+## Requirements
+
+- Linux
+- Vencord source checkout at `~/Vencord`
+- `node`, `npm`, `git`, and `pnpm`
+- Vesktop or Discord with Vencord
+
 ## Project Structure
 
 ```text
@@ -38,7 +58,7 @@ The helper is a Node/Express server. It exposes:
 The helper uses paths relative to the `helper/` folder:
 
 - `helper/bin/whisper-cli`
-- `helper/models/ggml-base.en.bin`
+- `helper/models/ggml-base.en.bin` when present. The installer downloads this automatically if missing.
 - `helper/bin/ffmpeg` when present, otherwise the system `ffmpeg`
 - `helper/uploads/`
 
@@ -67,3 +87,7 @@ The plugin currently calls:
 ```text
 http://127.0.0.1:8765/transcribe-url
 ```
+
+## Release Packaging
+
+Do not upload or share release zips containing `.git`, `node_modules`, or `helper/models/ggml-base.en.bin`. Those may exist locally after development or installation, but they should not be included in release archives.
