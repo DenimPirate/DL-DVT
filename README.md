@@ -1,4 +1,4 @@
-# VoiceNoteTranscriber
+# DenimLabs Discord Voicenote Transcriber
 
 VoiceNoteTranscriber is a Vencord/Vesktop plugin plus local helper app for transcribing Discord voice notes with whisper.cpp.
 
