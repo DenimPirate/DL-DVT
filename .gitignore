@@ -1,0 +1,14 @@
+node_modules/
+uploads/
+dist/
+
+*.wav
+*.ogg
+
+*.tmp
+*.temp
+*.log
+.DS_Store
+Thumbs.db
+
+helper/models/*.bin
