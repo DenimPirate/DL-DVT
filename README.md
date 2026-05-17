@@ -1,6 +1,6 @@
 # DenimLabs Discord Voicenote Transcriber
 
-VoiceNoteTranscriber is a Vencord/Vesktop plugin plus local helper app for transcribing Discord voice notes with whisper.cpp.
+DL-DVT is a Vencord/Vesktop plugin plus local helper app for transcribing Discord voice notes with whisper.cpp.
 
 The Vencord plugin adds a Transcribe button to audio attachments. The helper runs locally on `127.0.0.1:8765`, downloads or accepts audio, converts it to 16 kHz mono WAV with ffmpeg, runs whisper.cpp, and returns the transcript.
 
