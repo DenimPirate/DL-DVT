@@ -12,6 +12,7 @@ Transcription is local and private: audio is sent only to the helper running on 
 
 ```text
 DL-DVT/
+├── package.json
 ├── helper/
 │   ├── server.js
 │   ├── package.json
@@ -44,12 +45,12 @@ The helper uses paths relative to the `helper/` folder:
 ## Start The Helper
 
 ```bash
-cd ~/DL-DVT/helper
-npm install
+cd ~/DL-DVT
+npm run install:helper
 npm start
 ```
 
-For development, `npm run dev` currently runs the same server command.
+For development, `npm run dev` currently runs the same helper server command.
 
 ## Vencord Plugin Development
 

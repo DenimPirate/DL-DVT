@@ -1,0 +1,11 @@
+{
+  "name": "dl-dvt",
+  "version": "1.0.0",
+  "description": "DenimLabs Discord Voicenote Transcriber (DL-DVT).",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix helper start",
+    "dev": "npm --prefix helper run dev",
+    "install:helper": "npm --prefix helper install"
+  }
+}
