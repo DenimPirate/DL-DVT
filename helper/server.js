@@ -155,7 +155,7 @@ function cleanWhisperOutput(output) {
 }
 
 app.listen(8765, "127.0.0.1", () => {
-    console.log("Server started: Voice note transcriber running on http://127.0.0.1:8765");
+    console.log("Server started: DenimLabs Discord Voicenote Transcriber (DL-DVT) helper running on http://127.0.0.1:8765");
     console.log("Using whisper binary:", WHISPER_BIN);
     console.log("Using model:", MODEL);
     console.log("Using ffmpeg:", FFMPEG);

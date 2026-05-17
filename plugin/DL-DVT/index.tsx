@@ -23,13 +23,13 @@ function TranscribeButton({ url }: { url: string }) {
             const data = await response.json();
 
             if (!response.ok) {
-                throw new Error(data.error || "Local transcriber returned an error");
+                throw new Error(data.error || "DL-DVT helper returned an error");
             }
 
             setText(data.text || "No transcript returned");
             setStatus("");
         } catch (err) {
-            console.error("VoiceNoteTranscriber failed:", err);
+            console.error("DL-DVT failed:", err);
             setStatus("");
             setText(`Transcription failed: ${String(err)}`);
         }
@@ -44,14 +44,14 @@ function TranscribeButton({ url }: { url: string }) {
                 Transcribe
             </Button>
 
-{status && (
-    <div className="vc-vnt-loading">
-        <span className="vc-vnt-spinner" />
-        <span>Transcribing...</span>
-    </div>
-)}
+            {status && (
+                <div className="vc-dl-dvt-loading">
+                    <span className="vc-dl-dvt-spinner" />
+                    <span>Transcribing...</span>
+                </div>
+            )}
             {text && (
-		<div className="vc-vnt-transcript">
+                <div className="vc-dl-dvt-transcript">
                     {text}
                 </div>
             )}
@@ -60,8 +60,8 @@ function TranscribeButton({ url }: { url: string }) {
 }
 
 export default definePlugin({
-    name: "VoiceNoteTranscriber",
-    description: "Transcribes Discord voice notes locally using Whisper.cpp",
+    name: "DL-DVT",
+    description: "DenimLabs Discord Voicenote Transcriber: transcribes Discord voice notes locally using Whisper.cpp",
     authors: [{ name: "Pierce" }],
 
     renderMessageAccessory(props: any) {

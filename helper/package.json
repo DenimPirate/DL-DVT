@@ -1,7 +1,7 @@
 {
-  "name": "voice-note-transcriber",
+  "name": "dl-dvt-helper",
   "version": "1.0.0",
-  "description": "",
+  "description": "Local helper service for DenimLabs Discord Voicenote Transcriber (DL-DVT).",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",

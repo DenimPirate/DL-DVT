@@ -1,6 +1,6 @@
 # DenimLabs Discord Voicenote Transcriber
 
-DL-DVT is a Vencord/Vesktop plugin plus local helper app for transcribing Discord voice notes with whisper.cpp.
+DenimLabs Discord Voicenote Transcriber (DL-DVT) is a Vencord/Vesktop plugin plus local helper app for transcribing Discord voice notes with whisper.cpp.
 
 The Vencord plugin adds a Transcribe button to audio attachments. The helper runs locally on `127.0.0.1:8765`, downloads or accepts audio, converts it to 16 kHz mono WAV with ffmpeg, runs whisper.cpp, and returns the transcript.
 
@@ -11,7 +11,7 @@ Transcription is local and private: audio is sent only to the helper running on 
 ## Project Structure
 
 ```text
-voice-note-transcriber-app/
+DL-DVT/
 ├── helper/
 │   ├── server.js
 │   ├── package.json
@@ -22,7 +22,7 @@ voice-note-transcriber-app/
 │   └── models/
 │       └── ggml-base.en.bin
 └── plugin/
-    └── VoiceNoteTranscriber/
+    └── DL-DVT/
         ├── index.tsx
         └── style.css
 ```
@@ -44,7 +44,7 @@ The helper uses paths relative to the `helper/` folder:
 ## Start The Helper
 
 ```bash
-cd ~/voice-note-transcriber-app/helper
+cd ~/DL-DVT/helper
 npm install
 npm start
 ```
@@ -56,7 +56,7 @@ For development, `npm run dev` currently runs the same server command.
 During development, copy the plugin folder into Vencord's user plugins directory:
 
 ```bash
-cp -r ~/voice-note-transcriber-app/plugin/VoiceNoteTranscriber ~/Vencord/src/userplugins/
+cp -r ~/DL-DVT/plugin/DL-DVT ~/Vencord/src/userplugins/
 ```
 
 Then rebuild or restart Vencord/Vesktop using your normal Vencord development workflow.
