@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DL-DVT Helper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="shell">
+        <section class="hero">
+            <p class="eyebrow">DenimLabs Discord Voicenote Transcriber</p>
+            <h1>DL-DVT Helper</h1>
+            <p class="intro">Start the local transcription helper, then use the Transcribe button in Discord voice notes.</p>
+        </section>
+
+        <section class="card" aria-live="polite">
+            <div class="status-row">
+                <span id="statusDot" class="status-dot stopped"></span>
+                <div>
+                    <p class="label">Helper Status</p>
+                    <p id="statusText" class="status-text">Checking...</p>
+                </div>
+            </div>
+
+            <dl class="details">
+                <div>
+                    <dt>Helper URL</dt>
+                    <dd id="helperUrl">http://127.0.0.1:8765</dd>
+                </div>
+                <div>
+                    <dt>Health</dt>
+                    <dd id="healthText">Checking /health...</dd>
+                </div>
+            </dl>
+
+            <p id="errorText" class="error" hidden></p>
+        </section>
+
+        <section class="actions" aria-label="Helper controls">
+            <button id="startButton" class="primary">Start Helper</button>
+            <button id="stopButton">Stop Helper</button>
+            <button id="githubButton">Open GitHub</button>
+            <button id="quitButton" class="danger">Quit</button>
+        </section>
+
+        <p class="note">Closing this window hides it. Use Quit to stop the helper and exit fully.</p>
+    </main>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

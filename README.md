@@ -2,9 +2,9 @@
 
 DenimLabs Discord Voicenote Transcriber (DL-DVT) is a Vencord/Vesktop plugin plus local helper app for transcribing Discord voice notes with whisper.cpp.
 
-The Vencord plugin adds a Transcribe button to audio attachments. The helper runs locally on `127.0.0.1:8765`, downloads or accepts audio, converts it to 16 kHz mono WAV with ffmpeg, runs whisper.cpp, and returns the transcript.
+The Vencord plugin adds a Transcribe button to audio attachments. The GUI helper app starts and stops a local helper on `127.0.0.1:8765`, downloads or accepts audio, converts it to 16 kHz mono WAV with ffmpeg, runs whisper.cpp, and returns the transcript.
 
-This is currently a companion-app prototype. The helper must be running locally before the plugin can transcribe voice notes.
+This is currently a companion-app prototype. The helper app must be open and the helper must be running before the plugin can transcribe voice notes.
 
 Transcription is local and private: audio is sent only to the helper running on your machine, then processed with the bundled whisper.cpp binary and model.
 
@@ -33,6 +33,11 @@ After installation, fully restart Vesktop/Discord and enable `DL-DVT` in Vencord
 ```text
 DL-DVT/
 ├── package.json
+├── app/
+│   ├── main.js
+│   ├── index.html
+│   ├── renderer.js
+│   └── style.css
 ├── helper/
 │   ├── server.js
 │   ├── package.json
@@ -52,6 +57,7 @@ DL-DVT/
 
 The helper is a Node/Express server. It exposes:
 
+- `GET /health` with helper status JSON
 - `POST /transcribe-url` with JSON like `{ "url": "https://cdn.discordapp.com/attachments/..." }`
 - `POST /transcribe` with a multipart uploaded audio file named `audio`
 
@@ -70,7 +76,17 @@ npm run install:helper
 npm start
 ```
 
-For development, `npm run dev` currently runs the same helper server command.
+`npm start` opens the Electron GUI helper app. Click **Start Helper** to start the local transcription server.
+
+Closing the GUI window hides it and keeps the helper running in the background. Use **Quit** to stop the helper and fully exit the helper app.
+
+For helper-only development without the GUI, run:
+
+```bash
+npm run start:helper
+```
+
+For GUI development, `npm run dev` launches the Electron helper app.
 
 ## Vencord Plugin Development
 

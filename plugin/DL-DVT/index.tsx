@@ -31,7 +31,13 @@ function TranscribeButton({ url }: { url: string }) {
         } catch (err) {
             console.error("DL-DVT failed:", err);
             setStatus("");
-            setText(`Transcription failed: ${String(err)}`);
+
+            const errorMessage = String(err);
+            if (errorMessage.includes("Failed to fetch")) {
+                setText("DL-DVT helper is not running. Open the DL-DVT helper app, click Start Helper, then try again.");
+            } else {
+                setText(`Transcription failed: ${errorMessage}`);
+            }
         }
     }
 

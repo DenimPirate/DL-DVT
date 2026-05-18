@@ -20,6 +20,14 @@ fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 
 const upload = multer({ dest: UPLOADS_DIR });
 
+app.get("/health", (req, res) => {
+    res.json({
+        ok: true,
+        name: "DL-DVT helper",
+        status: "running"
+    });
+});
+
 app.post("/transcribe-url", async (req, res) => {
     const { url } = req.body;
     console.log("Request received: POST /transcribe-url", { url });

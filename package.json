@@ -4,8 +4,12 @@
   "description": "DenimLabs Discord Voicenote Transcriber (DL-DVT).",
   "private": true,
   "scripts": {
-    "start": "npm --prefix helper start",
-    "dev": "npm --prefix helper run dev",
+    "start": "/usr/bin/electron app/main.js",	
+    "start:helper": "npm --prefix helper start",
+    "dev": "/usr/bin/electron app/main.js",
     "install:helper": "npm --prefix helper install"
+  },
+  "devDependencies": {
+    "electron": "^39.8.10"
   }
 }
